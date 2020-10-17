@@ -17,24 +17,37 @@ public class HappyPet {
 			//    (eg: cuddle, food, water, take a walk, groom, clean up poop).
 			//    Make sure to customize the title and question too.
 			int task = JOptionPane.showOptionDialog(null, "What makes your pet happy?", "Happiness of your pet", 0, JOptionPane.INFORMATION_MESSAGE, null,
-					new String[] { "Pet your pet", "Getting punched", "Treats" }, null);
+					new String[] { "Getting pet", "Getting punched", "Treats" }, null);
 
 			// 5. Use user input to call the appropriate method created in step 4.
-			if(task==0) {
-				bark();
+			if(task==1) {
+				Gettingpunched();
 				
 			}
-
+			if (task==0) {
+				Gettingpet ();
+			}
+			if (task==2) {
+				Treats ();
+			}
 			// 6. If you determine the happiness level is large enough, tell the
 			//    user that he loves his pet and use break; to exit for loop.
 
 	}
 	
-	private static void bark() {
-		
-		
-	}
+	private static void Gettingpunched() {
+		happinessLevel = happinessLevel -1;
+		JOptionPane.showMessageDialog(null, " Happiness level = "+happinessLevel);
 
+	}
+	private static void Gettingpet () {
+		happinessLevel = happinessLevel +1;
+		JOptionPane.showMessageDialog(null, " Happiness level ="+happinessLevel);
+	}
+	private static void Treats () {
+		happinessLevel = happinessLevel +2;
+		JOptionPane.showMessageDialog(null, " Happiness level ="+happinessLevel);
+	}
 	// 4. Create methods to handle each of your user selections.
 	//    Each method should create a pop-up with the pet's response (eg. cat might purr when pet), 
 	//    and INCREMENT the pet's happiness Level.
